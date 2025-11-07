@@ -1,114 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homenagem à Professora Valdelina 💐</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>💛 Homenagem à Profª Valdelina — Com carinho, Carlos e toda a turma</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --bg1: #061321;
+      --bg2: #0a3c5a;
+      --accent: #ffd166;
+      --card: rgba(255,255,255,0.03);
+      --muted: #b8d7e5;
+      --glass: rgba(255,255,255,0.06);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, rgba(255,217,150,0.1), transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: #f3faff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      overflow: hidden;
     }
 
-    body {
-      background: linear-gradient(135deg, #fbe9e7, #f8bbd0, #f3e5f5);
-      color: #4a148c;
-      text-align: center;
+    /* Luzes flutuantes */
+    .glow {
+      position: fixed;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      filter: blur(6px);
+      opacity: 0.7;
+      animation: floatGlow 8s linear infinite;
+    }
+    @keyframes floatGlow {
+      from { transform: translateY(0) scale(1); opacity: 0.8; }
+      to { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 20px;
       overflow: hidden;
-      height: 100vh;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 0 60px rgba(2, 8, 23, 0.7);
+      display: grid;
+      grid-template-columns: 1fr 400px;
+    }
+    @media (max-width:900px){
+      .wrap { grid-template-columns: 1fr; }
+      .right { order: -1; border-left: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    }
+
+    .left { padding: 40px; position: relative; }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent), #ffb703);
+      color: #072227;
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 999px;
+      letter-spacing: 0.6px;
+      box-shadow: 0 6px 15px rgba(255,209,102,0.25);
     }
 
     h1 {
-      margin-top: 50px;
-      font-size: 3rem;
-      animation: glow 3s ease-in-out infinite alternate;
+      font-family: "Playfair Display", serif;
+      font-size: 36px;
+      color: #fff;
+      margin: 18px 0 6px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #ce93d8, 0 0 20px #ba68c8; }
-      to { text-shadow: 0 0 30px #f48fb1, 0 0 60px #f06292; }
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-left: auto;
     }
 
-    #mensagem {
-      margin: 30px auto;
-      max-width: 800px;
-      font-size: 1.4rem;
-      line-height: 1.8;
-      color: #6a1b9a;
-      background: rgba(255,255,255,0.3);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
+    .card-message {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 18px;
+      line-height: 1.7;
+      font-size: 17px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 10px 25px rgba(2,8,23,0.5);
+      min-height: 250px;
+      overflow-y: auto;
+      transition: box-shadow 0.3s;
+    }
+    .card-message:hover { box-shadow: 0 0 30px rgba(255,209,102,0.15); }
+
+    .chip {
+      background: var(--glass);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      display: inline-block;
+      margin: 8px 6px 0 0;
+      font-weight: 700;
+      animation: glowChip 3s ease-in-out infinite alternate;
+    }
+    @keyframes glowChip {
+      from { box-shadow: 0 0 4px transparent; }
+      to { box-shadow: 0 0 14px rgba(255,209,102,0.25); }
     }
 
-    .flor {
-      position: absolute;
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.1); }
+    .btn.primary {
+      background: linear-gradient(90deg,var(--accent),#ffce5b);
+      color: #042733;
+      border: none;
+    }
+
+    .right {
+      padding: 34px;
+      text-align: center;
+      border-left: 1px solid rgba(255,255,255,0.04);
+    }
+    .portrait {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(180deg,#094d68,#0b718a);
+      display: grid; place-items: center;
+      margin: 0 auto 10px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .portrait::after {
+      content: "💛";
       font-size: 24px;
-      opacity: 0.8;
-      animation: cair 10s linear infinite;
+      position: absolute;
+      bottom: -10px; right: 10px;
+    }
+    .teacher-name { font-weight: 800; font-size: 19px; }
+    .teacher-role { color: var(--muted); margin-bottom: 8px; }
+
+    .playlist { margin-top: 12px; font-size: 14px; max-height: 200px; overflow-y:auto; }
+    .track {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .track:hover { background: rgba(255,255,255,0.08); }
+    .track.playing { background: rgba(255,209,102,0.15); }
+
+    .visualizer {
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg,var(--accent),#ffb703);
+      border-radius: 999px;
+      margin-top: 6px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.3s;
     }
 
-    @keyframes cair {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
+    .signature { margin-top: 16px; font-weight: 700; color: var(--muted); }
+    .signature strong { color: #fff; }
 
-    audio {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+    footer.note { margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+    .secret {
+      display:none;
+      margin-top: 14px;
+      background: linear-gradient(90deg, rgba(255,209,102,0.08), rgba(255,255,255,0.02));
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: #042b32;
+      border: 1px solid rgba(255,209,102,0.12);
     }
   </style>
 </head>
 <body>
-  <h1>💖 Homenagem à Professora Valdelina 💖</h1>
+  <!-- Luzes -->
+  <div class="glow" style="top:80%;left:10%;animation-delay:1s;"></div>
+  <div class="glow" style="top:90%;left:50%;animation-delay:3s;"></div>
+  <div class="glow" style="top:85%;left:80%;animation-delay:5s;"></div>
 
-  <div id="mensagem"></div>
+  <div class="wrap">
+    <section class="left">
+      <div class="badge">💐 HOMENAGEM ESPECIAL</div>
+      <h1>Profª Valdelina <span class="subtitle">— exemplo e inspiração</span></h1>
 
-  <audio controls autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_d0c8a47686.mp3?filename=soft-piano-14792.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio.
-  </audio>
+      <div class="card-message" id="cardMessage">
+        <span id="typedText"></span><span class="typewriter-cursor" id="cursor">▋</span>
+      </div>
+
+      <div>
+        <div class="chip">Atenciosa</div>
+        <div class="chip">Clara nas explicações</div>
+        <div class="chip">Paciente</div>
+        <div class="chip">Inspiradora</div>
+        <div class="chip">Motivadora</div>
+        <div class="chip">Brilhante</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="startBtn">▶️ Iniciar música</button>
+        <button class="btn" id="pauseBtn">⏸️ Pausar</button>
+        <button class="btn primary" id="secretBtn">💌 Mensagem secreta</button>
+        <button class="btn" id="randomMsg">✨ Mensagem aleatória</button>
+      </div>
+
+      <div class="signature">Com carinho, <strong>Carlos</strong> e toda a turma 💖</div>
+      <footer class="note">Clique para iniciar a digitação e liberar o som 🎵</footer>
+
+      <div id="secretMessage" class="secret">
+        Querida professora Valdelina, sua dedicação e carinho são luzes que guiam nossos passos. Obrigado por transformar o aprendizado em algo tão especial 💛
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="portrait">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none">
+          <path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" fill="rgba(255,255,255,0.9)"/>
+          <path d="M4 20c0-3.31 2.69-6 6-6h4c3.31 0 6 2.69 6 6H4z" fill="rgba(255,255,255,0.07)"/>
+        </svg>
+      </div>
+      <div class="teacher-name">Profª Valdelina</div>
+      <div class="teacher-role">Professora de Geografia</div>
+
+      <div class="playlist" id="playlist"></div>
+      <div class="visualizer" id="visualizer"></div>
+    </aside>
+  </div>
+
+  <audio id="player" preload="auto"></audio>
 
   <script>
-    const texto = `Querida professora Valdelina,
+    const mensagem = `Querida professora Valdelina,
 
-Desde o primeiro dia de aula, sua dedicação e carinho tornam cada momento especial.
-A forma como você ensina vai além dos livros — você desperta em nós o desejo de aprender, 
-de entender o mundo e enxergar a beleza nas pequenas coisas.
+Cada aula sua é uma verdadeira viagem pelos caminhos do conhecimento. Você transforma mapas em histórias, lições em inspiração e dúvidas em descobertas.
 
-Sua paciência, atenção e amor pelo que faz inspiram todos ao seu redor.
-É admirável ver como você explica com tanta clareza e torna até os temas mais difíceis fáceis de entender.
+Sua dedicação, paciência e carinho nos ensinam muito mais do que geografia — nos ensinam sobre empatia, amor e persistência.
 
-Nós, seus alunos, somos gratos por cada palavra, cada lição e cada gesto de incentivo.
-Você é uma verdadeira inspiração — uma professora que ensina com o coração. 💐`;
+Admiro a forma como você acredita em cada aluno e desperta em nós o desejo de aprender. 
 
-    let i = 0;
-    const msgDiv = document.getElementById("mensagem");
-    function escrever() {
-      if (i < texto.length) {
-        msgDiv.innerHTML += texto.charAt(i);
-        i++;
-        setTimeout(escrever, 40);
-      }
+Você é uma inspiração que levaremos para a vida inteira.
+Obrigado por cada ensinamento e por estar sempre conosco com um sorriso no rosto.
+
+Com muito carinho e gratidão,
+Carlos e toda a turma 💖`;
+
+    const typedText = document.getElementById("typedText");
+    const cursor = document.getElementById("cursor");
+    let index = 0;
+
+    function typeStep() {
+      if (index < mensagem.length) {
+        const ch = mensagem.charAt(index);
+        typedText.innerHTML += ch === "\n" ? "<br>" : ch;
+        index++;
+        let delay = /[.,;!?]/.test(ch) ? 150 : 30;
+        setTimeout(typeStep, delay);
+      } else cursor.style.display = "none";
     }
-    escrever();
 
-    // Criar flores animadas
-    const flores = ["🌸","🌷","🌹","🌼","💮"];
-    for (let j = 0; j < 25; j++) {
-      const flor = document.createElement("div");
-      flor.classList.add("flor");
-      flor.innerText = flores[Math.floor(Math.random() * flores.length)];
-      flor.style.left = Math.random() * 100 + "vw";
-      flor.style.animationDuration = (8 + Math.random() * 5) + "s";
-      flor.style.fontSize = (16 + Math.random() * 20) + "px";
-      document.body.appendChild(flor);
+    document.body.addEventListener("click", () => {
+      if (index === 0) typeStep();
+    }, {once:true});
+
+    /* Playlist */
+    const tracks = [
+      { title: "Melodia suave — 1", src: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_ee25e7304b.mp3?filename=soft-piano-11157.mp3" },
+      { title: "Paz interior — 2", src: "https://cdn.pixabay.com/download/audio/2023/03/30/audio_d0c8a47686.mp3?filename=soft-piano-14792.mp3" },
+      { title: "Tranquilidade — 3", src: "https://cdn.pixabay.com/download/audio/2021/08/04/audio_3b8e9a6a9b.mp3?filename=acoustic-guitar-11602.mp3" }
+    ];
+    const player = document.getElementById("player");
+    const playlistDiv = document.getElementById("playlist");
+    const visualizer = document.getElementById("visualizer");
+    let current = 0;
+
+    tracks.forEach((t, i)=>{
+      const el = document.createElement("div");
+      el.className = "track";
+      el.textContent = `${i+1}. ${t.title}`;
+      el.addEventListener("click", ()=>{loadTrack(i); playTrack();});
+      playlistDiv.appendChild(el);
+    });
+
+    function loadTrack(i){
+      current = i;
+      player.src = tracks[i].src;
     }
+    function playTrack(){ player.play(); updatePlaylist(); animateBar(true); }
+    function pauseTrack(){ player.pause(); animateBar(false); }
+    function updatePlaylist(){
+      document.querySelectorAll(".track").forEach((t,j)=>t.classList.toggle("playing",j===current));
+    }
+    function animateBar(active){ visualizer.style.transform = active ? "scaleX(1)" : "scaleX(0)"; }
+
+    document.getElementById("startBtn").onclick = ()=>{ if(!player.src) loadTrack(current); playTrack(); };
+    document.getElementById("pauseBtn").onclick = ()=> pauseTrack();
+
+    /* Secret & Random message */
+    const secretEl = document.getElementById("secretMessage");
+    document.getElementById("secretBtn").onclick = ()=> {
+      secretEl.style.display = secretEl.style.display === "block" ? "none" : "block";
+    };
+
+    const msgs = [
+      "Você é uma professora incrível! 🌟",
+      "Seu jeito de ensinar torna tudo mais leve 💖",
+      "Obrigado por acreditar em nós, professora 💐",
+      "Seu carinho transforma o aprendizado em arte 🎨",
+      "Admiro sua dedicação e o brilho que traz à sala ✨"
+    ];
+    document.getElementById("randomMsg").onclick = ()=>{
+      alert(msgs[Math.floor(Math.random()*msgs.length)]);
+    };
   </script>
 </body>
 </html>
