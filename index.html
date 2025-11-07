@@ -1,130 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>💛 Homenagem à Profª Valdelina 💛</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homenagem à Professora Valdelina 💐</title>
   <style>
-    :root{
-      --bg1:#0b1e3d;
-      --bg2:#0d3b66;
-      --accent:#ffb703;
-      --muted:#a8b6c9;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    *{box-sizing:border-box;transition:all .3s ease}
-    body{margin:0;font-family:Montserrat,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(120deg,var(--bg1),var(--bg2));color:#eef2f7;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;overflow-x:hidden}
-    .card{width:100%;max-width:980px;background:linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border-radius:24px;box-shadow:0 12px 40px rgba(2,6,23,0.6);overflow:hidden;display:grid;grid-template-columns:1fr 420px;backdrop-filter:blur(6px)}
-    @media(max-width:900px){.card{grid-template-columns:1fr;}}
 
-    .left{padding:48px;animation:fadeIn 1.2s ease}
-    .badge{background:linear-gradient(90deg,var(--accent),#ffd166);color:#072227;padding:8px 14px;border-radius:999px;font-weight:700;display:inline-block;margin-bottom:8px}
-    h1{font-family:'Playfair Display',serif;font-size:40px;margin:6px 0 10px;color:#fff;text-shadow:0 2px 10px rgba(255,255,255,0.15)}
-    .subtitle{color:var(--muted);margin-bottom:20px;font-size:18px}
-    p.lead{line-height:1.6;font-size:18px;color:#f1f5f9;margin-bottom:18px}
-    .qualities{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .chip{background:rgba(255,255,255,0.08);padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.05);font-weight:600;backdrop-filter:blur(3px)}
-    .chip:hover{transform:scale(1.1);background:var(--accent);color:#072227}
+    body {
+      background: linear-gradient(135deg, #fbe9e7, #f8bbd0, #f3e5f5);
+      color: #4a148c;
+      text-align: center;
+      overflow: hidden;
+      height: 100vh;
+    }
 
-    .quote{margin-top:22px;padding:16px 20px;border-left:4px solid var(--accent);background:linear-gradient(90deg,rgba(255,255,255,0.05),transparent);border-radius:8px;color:#fff;font-style:italic;font-size:17px;animation:fadeInUp 1.4s ease}
+    h1 {
+      margin-top: 50px;
+      font-size: 3rem;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
 
-    .actions{display:flex;gap:12px;margin-top:28px}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:12px 18px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;backdrop-filter:blur(4px);font-size:16px}
-    .btn:hover{background:rgba(255,255,255,0.1)}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#ffd166);color:#072227;border:none}
-    .btn.primary:hover{transform:scale(1.05)}
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ce93d8, 0 0 20px #ba68c8; }
+      to { text-shadow: 0 0 30px #f48fb1, 0 0 60px #f06292; }
+    }
 
-    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center}
+    #mensagem {
+      margin: 30px auto;
+      max-width: 800px;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: #6a1b9a;
+      background: rgba(255,255,255,0.3);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+    }
 
-    .right{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:fadeInRight 1.3s ease}
-    .portrait{width:240px;height:240px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#0b5672,#0a82a8);box-shadow:0 8px 40px rgba(3,10,26,0.5);border:6px solid rgba(255,255,255,0.04);position:relative}
-    .portrait svg{width:110px;height:110px;opacity:0.95}
+    .flor {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0.8;
+      animation: cair 10s linear infinite;
+    }
 
-    .name{margin-top:20px;font-size:22px;font-weight:700}
-    .role{color:var(--muted);font-weight:600}
-    .stats{display:flex;gap:12px;margin-top:18px}
-    .stat{background:rgba(255,255,255,0.05);padding:12px 16px;border-radius:10px;text-align:center}
-    .stat strong{display:block;font-size:18px;color:var(--accent)}
+    @keyframes cair {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
 
-    /* Animações */
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
-    @keyframes floatHeart{0%{opacity:0;transform:translateY(0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-120px) scale(1.3)}}
-
-    /* corações de fundo */
-    .heart-bg{position:fixed;bottom:-10px;left:50%;font-size:22px;opacity:0;animation:floatHeart 4s linear infinite}
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <section class="left">
-      <div class="badge">Homenagem Especial</div>
-      <h1>💛 À querida Profª Valdelina 💛</h1>
-      <div class="subtitle">Por sua atenção, dedicação e por nos ensinar a ver o mundo com outros olhos 🌍</div>
+  <h1>💖 Homenagem à Professora Valdelina 💖</h1>
 
-      <p class="lead">Valdelina, cada aula sua é uma viagem por montanhas, rios e culturas. Sua paciência, atenção e carinho tornam a geografia não apenas uma matéria — mas uma forma de entender a vida. Obrigado(a) por nos inspirar todos os dias e por acreditar em nós mesmo quando duvidamos de nós mesmos.</p>
+  <div id="mensagem"></div>
 
-      <div class="qualities">
-        <div class="chip">Atenciosa</div>
-        <div class="chip">Inspiradora</div>
-        <div class="chip">Paciente</div>
-        <div class="chip">Amável</div>
-        <div class="chip">Dedicada</div>
-        <div class="chip">Sábia</div>
-      </div>
-
-      <div class="quote">“Ensinar é um ato de amor, e a professora Valdelina é o exemplo vivo desse amor em ação.”</div>
-
-      <div class="actions">
-        <button class="btn" id="printBtn">🖨️ Imprimir cartão</button>
-        <button class="btn primary" id="confettiBtn">🎉 Enviar surpresa</button>
-      </div>
-
-      <footer>Feito com muito carinho pelos alunos em homenagem à Profª Valdelina 💐</footer>
-    </section>
-
-    <aside class="right">
-      <div class="portrait">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" fill="rgba(255,255,255,0.9)"/>
-          <path d="M4 20c0-3.31 2.69-6 6-6h4c3.31 0 6 2.69 6 6H4z" fill="rgba(255,255,255,0.05)"/>
-        </svg>
-      </div>
-      <div class="name">Profª Valdelina</div>
-      <div class="role">Professora de Geografia</div>
-      <div class="stats">
-        <div class="stat"><strong>+10</strong>anos de ensino</div>
-        <div class="stat"><strong>100%</strong>dedicação</div>
-      </div>
-    </aside>
-  </main>
-
-  <audio id="bgm" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_ee25e7304b.mp3?filename=soft-piano-ambient-11157.mp3" type="audio/mpeg">
+  <audio controls autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_d0c8a47686.mp3?filename=soft-piano-14792.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
   </audio>
 
   <script>
-    const bgm=document.getElementById('bgm');
-    document.body.addEventListener('click',()=>{if(bgm.paused){bgm.volume=0.3;bgm.play();}});
+    const texto = `Querida professora Valdelina,
 
-    document.getElementById('printBtn').addEventListener('click',()=>window.print());
+Desde o primeiro dia de aula, sua dedicação e carinho tornam cada momento especial.
+A forma como você ensina vai além dos livros — você desperta em nós o desejo de aprender, 
+de entender o mundo e enxergar a beleza nas pequenas coisas.
 
-    document.getElementById('confettiBtn').addEventListener('click',()=>{
-      for(let i=0;i<25;i++){
-        const el=document.createElement('div');
-        el.textContent=['💛','💐','🌟','✨','🌸'][Math.floor(Math.random()*5)];
-        el.style.position='fixed';
-        el.style.left=(Math.random()*100)+'vw';
-        el.style.top='100vh';
-        el.style.fontSize=(18+Math.random()*22)+'px';
-        el.style.animation='floatHeart 3.5s linear infinite';
-        el.style.opacity='0';
-        el.style.zIndex='9999';
-        document.body.appendChild(el);
-        setTimeout(()=>el.remove(),3500);
+Sua paciência, atenção e amor pelo que faz inspiram todos ao seu redor.
+É admirável ver como você explica com tanta clareza e torna até os temas mais difíceis fáceis de entender.
+
+Nós, seus alunos, somos gratos por cada palavra, cada lição e cada gesto de incentivo.
+Você é uma verdadeira inspiração — uma professora que ensina com o coração. 💐`;
+
+    let i = 0;
+    const msgDiv = document.getElementById("mensagem");
+    function escrever() {
+      if (i < texto.length) {
+        msgDiv.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escrever, 40);
       }
-    });
+    }
+    escrever();
+
+    // Criar flores animadas
+    const flores = ["🌸","🌷","🌹","🌼","💮"];
+    for (let j = 0; j < 25; j++) {
+      const flor = document.createElement("div");
+      flor.classList.add("flor");
+      flor.innerText = flores[Math.floor(Math.random() * flores.length)];
+      flor.style.left = Math.random() * 100 + "vw";
+      flor.style.animationDuration = (8 + Math.random() * 5) + "s";
+      flor.style.fontSize = (16 + Math.random() * 20) + "px";
+      document.body.appendChild(flor);
+    }
   </script>
 </body>
 </html>
